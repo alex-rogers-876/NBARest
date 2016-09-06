@@ -1,0 +1,226 @@
+﻿@model NBARest.Models.NbaStats
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>NbaStats</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.seasonId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.seasonId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.leagueId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.leagueId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.teamId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.teamId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.teamAbrv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.teamAbrv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.playerAge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.playerAge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gamesPlayed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gamesPlayed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gamesStarted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gamesStarted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.minutes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.minutes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fga)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fga)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fgm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fgm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fgPercent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fgPercent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fg3m)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fg3m)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fg3a)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fg3a)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fg3Percent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fg3Percent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ftm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ftm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ftPercent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ftPercent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.oReb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.oReb)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dReb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dReb)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.totReb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.totReb)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ast)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ast)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.stl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.blk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.blk)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tov)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tov)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pf)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pts)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pts)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.playerId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
