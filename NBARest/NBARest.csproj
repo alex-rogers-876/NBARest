@@ -239,6 +239,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\getStatsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NbaStatsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -315,9 +316,11 @@
     <Content Include="Views\NbaStats\Details.cshtml" />
     <Content Include="Views\NbaStats\Edit.cshtml" />
     <Content Include="Views\NbaStats\Index.cshtml" />
+    <Content Include="Views\Home\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Nba\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

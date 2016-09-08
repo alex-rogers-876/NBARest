@@ -109,6 +109,7 @@ namespace NBARest.Controllers
             var queryResult = client.Execute(request);
             JObject nbaData = JObject.Parse(queryResult.Content); // <- where json is the string above
             int seasons = nbaData["resultSets"][0]["rowSet"].Count(); // queries number of seasons for the player
+            //Cycles through the number of seasons  and puts the players season into a list
             NbaStats nbaStatsTemp = new NbaStats();
             for (int i = 0; i < seasons; i++)
             {
