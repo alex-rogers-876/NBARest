@@ -7,18 +7,19 @@
 
     <div>
         <h2>All Products</h2>
-        <ul id="products" />
+        <ul id="nbas" />
     </div>
     <div>
         <h2>Search by ID</h2>
-        <input type="text" id="prodId" size="5" />
+        <input type="text" id="nbaId" size="5" />
         <input type="button" value="Search" onclick="find();" />
-        <p id="product" />
+        <p id="nba" />
     </div>
 
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
     <script>
-    var uri = 'api/products';
+        var uri = 'http://localhost:55174/api/getstats/index';
+        // http://localhost:55174/api/getstats/index/201939
 
     $(document).ready(function () {
       // Send an AJAX request
@@ -27,23 +28,23 @@
             // On success, 'data' contains a list of products.
             $.each(data, function (key, item) {
               // Add a list item for the product.
-              $('<li>', { text: formatItem(item) }).appendTo($('#products'));
+              $('<li>', { text: formatItem(item) }).appendTo($('#nba'));
             });
           });
     });
 
     function formatItem(item) {
-      return item.Name + ': $' + item.Price;
+        return item.seasonId + ': $' + item.leagueId;
     }
 
     function find() {
-      var id = $('#prodId').val();
+        var id = $('#nbaId').val();
       $.getJSON(uri + '/' + id)
           .done(function (data) {
-            $('#product').text(formatItem(data));
+            $('#nba').text(formatItem(data));
           })
           .fail(function (jqXHR, textStatus, err) {
-            $('#product').text('Error: ' + err);
+            $('#nba').text('Error: ' + err);
           });
     }
     </script>
