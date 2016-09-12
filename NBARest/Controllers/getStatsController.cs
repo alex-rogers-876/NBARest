@@ -12,7 +12,8 @@ namespace NBARest.Controllers
 {
     public class getStatsController : ApiController
     {
-        Dictionary<string, NbaStats> NbaStatsDictionary = new Dictionary<string, NbaStats>();
+        List<NbaStats> nbaStatsListy = new List<NbaStats>();
+        //Dictionary<string, NbaStats> NbaStatsDictionary = new Dictionary<string, NbaStats>();
         [System.Web.Http.AcceptVerbs("GET", "POST")]
         [System.Web.Http.HttpGet]
 
@@ -31,15 +32,17 @@ namespace NBARest.Controllers
 
             var queryResult = client.Execute(request);
             JObject nbaData = JObject.Parse(queryResult.Content); // <- where json is the string above
-            NbaStatsDictionary = getStatys(nbaData);
+            nbaStatsListy = getStats(nbaData);
             //return View(db.NbaStats.ToList());
-            return Ok(NbaStatsDictionary);
+            return Ok(nbaStatsListy);
 
         }
-        public Dictionary<string, NbaStats> getStatys(JObject nbaData)
+        //  public Dictionary<string, NbaStats> getStatys(JObject nbaData)
+        public List<NbaStats> getStats(JObject nbaData)
         {
 
-            Dictionary<string, NbaStats> nbaStatsList = new Dictionary<string, NbaStats>();
+            List<NbaStats> nbaStatsList = new List<NbaStats>();
+          //  Dictionary<string, NbaStats> nbaStatsList = new Dictionary<string, NbaStats>();
             int seasons = nbaData["resultSets"][0]["rowSet"].Count(); // queries number of seasons for the player
             for (int i = 0; i < seasons; i++)
             {
@@ -71,9 +74,9 @@ namespace NBARest.Controllers
                 nbaStats.tov = (double)nbaData["resultSets"][0]["rowSet"][i][24];
                 nbaStats.pf = (double)nbaData["resultSets"][0]["rowSet"][i][25];
                 nbaStats.pts = (double)nbaData["resultSets"][0]["rowSet"][i][26];
-            
-                nbaStatsList.Add(nbaStats.seasonId, nbaStats);
 
+                //nbaStatsList.Add(nbaStats.seasonId, nbaStats);
+                nbaStatsList.Add(nbaStats);
             }
             return nbaStatsList;
         }

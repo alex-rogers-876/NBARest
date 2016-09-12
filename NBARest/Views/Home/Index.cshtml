@@ -11,12 +11,16 @@
     </div>
     <div>
         <h2>Search by ID</h2>
-        <input type="text" id="nbaId" size="5" />
+        <input type="text" id="nbaId" size="7" />
         <input type="button" value="Search" onclick="find();" />
+        <select id="selector"></select>
         <p id="nba" />
+
     </div>
 
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/core.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js"></script>
     <script>
         var uri = 'http://localhost:55174/api/getstats/index';
         // http://localhost:55174/api/getstats/index/201939
@@ -32,9 +36,26 @@
             });
           });
     });
+    function getTest() {
+        var id = $('#nbaId').val();
+            $.ajax({
+                type: "POST",
+                url: uri + '/' + id,
+                data: "{}",
+                datatype: "json",
+                contenttype: "/application/json; charset=utf-8",
+                success: function (msg) {
+
+                    alert(msg.d);
+
+                },
+                error: function (data) {
+                }
+            });
+        }
 
     function formatItem(item) {
-        return item.seasonId + ': $' + item.leagueId;
+        return item[0].seasonId + ' ' + item.leagueId;
     }
 
     function find() {
@@ -47,6 +68,51 @@
             $('#nba').text('Error: ' + err);
           });
     }
+
+    window.onload = function () {
+        var JSON = {
+            "COLUMNS": ["ID", "Name"],
+            "DATA": [
+                ["1", "Atlanta Hawks"],
+                ["2", "Boston Celtics"],
+                ["3", "Brooklyn Nets"],
+                ["4", "Charlotte Hornets"],
+                ["5", "Chicago Bulls"],
+                ["6", "Cleveland Cavaliers"],
+                ["7", "Dallas Mavericks"],
+                ["8", "Denver Nuggets"],
+                ["9", "Detroit Pistons"],
+                ["10", "Golden State Warriors"],
+                ["11", "Houston Rockets"],
+                ["12", "Indiana Pacers"],
+                ["13", "L.A. Lakers"],
+                ["14", "L.A. Clippers"],
+                ["15", "Memphis Grizzlies"],
+                ["16", "Miami Heat"],
+                ["17", "Milwaukee Bucks"],
+                ["18", "Minnesota Timberwolves"],
+                ["19", "New Orleans Pelicans"],
+                ["20", "New York Knicks"],
+                ["21", "Oklahoma City Thunder"],
+                ["22", "Orlando Magic"],
+                ["23", "Philadelphia 76ers"],
+                ["24", "Phoenix Suns"],
+                ["25", "Portland Trailblazers"],
+                ["26", "Scaremento Kings"],
+                ["27", "San Antonio Spurs"],
+                ["28", "Toronto Raptors"],
+                ["29", "Utah Jazz"],
+                ["30", "Washington Wizards"]
+            ]
+        }, select = document.getElementById("selector");
+        for (var i = 0; i < JSON.DATA.length; i++) {
+            var at = JSON.DATA[i], id = at[0], name = at[1];
+            var option = document.createElement("option");
+            option.value = id;
+            option.textContent = name;
+            select.appendChild(option);
+        };
+    };
     </script>
 </body>
 </html>
