@@ -82,9 +82,12 @@ namespace NBARest.Controllers
 
             var queryResult = client.Execute(request);
             JObject nbaData = JObject.Parse(queryResult.Content); // <- where json is the string above
+
+            /* uncomment to get the above list instead of passing json data
             nbaStatsListy = getStats(nbaData);
             //return View(db.NbaStats.ToList());
-            return View(nbaStatsListy);
+            */
+            return View(nbaData);
             
         }
 

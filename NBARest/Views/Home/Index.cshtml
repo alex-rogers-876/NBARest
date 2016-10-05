@@ -46,29 +46,33 @@
                 contenttype: "/application/json; charset=utf-8",
                 success: function (msg) {
 
-                    alert(msg.d);
+                    alert("YAY");
 
                 },
                 error: function (data) {
+                    alert("boo");
                 }
             });
         }
 
     function formatItem(item) {
-        return item[0].seasonId + ' ' + item.leagueId;
+        return item.seasonId + ' ' + item.leagueId;
     }
 
     function find() {
         var id = $('#nbaId').val();
       $.getJSON(uri + '/' + id)
           .done(function (data) {
-            $('#nba').text(formatItem(data));
+              $.each(data, function (key, item) {
+                  // Add a list item for the product.
+                  $('<li>', { text: formatItem(item) }).appendTo($('#nba'));
+              });
           })
           .fail(function (jqXHR, textStatus, err) {
             $('#nba').text('Error: ' + err);
           });
     }
-
+/*
     window.onload = function () {
         var JSON = {
             "COLUMNS": ["ID", "Name"],
@@ -112,7 +116,7 @@
             option.textContent = name;
             select.appendChild(option);
         };
-    };
+    };*/
     </script>
 </body>
 </html>
