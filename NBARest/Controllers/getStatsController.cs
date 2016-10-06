@@ -36,6 +36,9 @@ namespace NBARest.Controllers
             nbaStatsListy = getStats(nbaData);
             //return View(db.NbaStats.ToList());
             */
+      
+
+            System.Diagnostics.Debug.WriteLine("test");
             return Ok(nbaData);
 
         }
